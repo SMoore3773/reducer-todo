@@ -1,39 +1,36 @@
 import React, {useState, useReducer} from 'react';
 import {initialToDoState, todoReducer} from '../reducers/TodoReducer';
 import Todo from './Todo';
+import TodoForm from './TodoForm'
 
 const TodoList = () =>{
 
     const [todoState, dispatch] = useReducer(todoReducer, initialToDoState );
-    const [newTodo, setNewTodo] = useState('');
+    // const [newTodo, setNewTodo] = useState('');
 
-    const handleAddTodo = e => {
-        setNewTodo(e.target.value);
-    }
+    // function handleChange(e){
+    //     setNewTodo(e.target.value);
+    // }
+    // function handleSubm(e){
+    //     e.preventDefault();
+    //     dispatch({type:'ADD_TODO', payload:'' })
+
+    // }
     console.log('initialtodostate in todolist',initialToDoState)
     console.log('todostate.todolist in todolist', todoState.todoList)
     // console.log(todoState.todoList)
     return(
         <div>
-            <form>
-            <input
-                    type='text'
-                    name='todo'
-                    value={newTodo}
-                    onChange={handleAddTodo}
-                />
-                <button
-                onClick={() => {
-                    dispatch({type: 'ADD_TODO', payload:'' })
-                }}
-                >Add ToDo</button>
-            </form>
+            <TodoForm dispatch = {dispatch}/>
             <div>
                 {todoState.todoList.map(todo =>{
-                    return(<Todo
+                    return(
+                    <Todo
+                    key={todo.id}
                     item={todo.item}
                     onClick={ id=> dispatch({type: 'TOGGLE_DONE', payload: id})}
-                    />)
+                    />
+                    )
                 })}
             </div>
         </div>

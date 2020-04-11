@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const TodoForm = props => {
+function TodoForm({dispatch}) {
+
+    const [newTodo, setNewTodo] = useState('');
+
+    function handleChange(e){
+        setNewTodo(e.target.value);
+    }
+    function handleSubmit(e){
+        e.preventDefault();
+        dispatch({type:'ADD_TODO', payload: newTodo });
+        setNewTodo('');
+    }
 
     
     return(
         <div>
-            <form>
-                <input
+           <form onSubmit={handleSubmit}>
+            <input
                     type='text'
-                    name='todo'
-                    value={props}
+                    
+                    value={newTodo}
+                    onChange={handleChange}
                 />
-                <button>Add ToDo</button>
+                <button type= 'submit'>Add ToDo</button>
             </form>
         </div>
     )

@@ -2,9 +2,6 @@ export const initialToDoState ={
    
        todoList: [ {item:'make a todo',
                     completed: false,
-                    id: Date.now()},
-                    {item:'eat',
-                    completed: false,
                     id: Date.now()}
                 ]
     
@@ -28,16 +25,19 @@ export const todoReducer = (state,action) => {
 
         case 'TOGGLE_DONE':
             console.log('state.todolist in todo reducer',state.todoList)
+            console.log('todolist copy in todoreducer', todoListCopy)
             //sends info in payload to reverse id spesific completed bool
             // use id to select specific todo to be able to toggle the completed flag
+            todoListCopy.forEach(e => {
+                if(e.id === action.payload){
+                    e.completed = !e.completed;
+                }
+                return { todoList: todoListCopy}
+            });
             
-            return{
-                ...state,
-                completed: !state.complete
-            };
         case 'ADD_TODO':
             //expecting new task name in payload, should be returning a copy of the state array with a new todo object
-            // const todoListCopy = state.todoList;
+            // return { todolist:[...initialToDoState, action.payload]}
             todoListCopy.push(createTodo(action.payload))
             return{
                 todoList:todoListCopy
