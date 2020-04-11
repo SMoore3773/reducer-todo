@@ -1,10 +1,10 @@
 import React, {useState, useReducer} from 'react';
-import {initialToDoState, todoReducer, todoState} from '../reducers/TodoReducer';
+import {initialToDoState, todoReducer} from '../reducers/TodoReducer';
 import Todo from './Todo';
 
 const TodoList = () =>{
 
-    const [todoState, dispatch] = useReducer( initialToDoState, todoReducer );
+    const [todoState, dispatch] = useReducer(todoReducer, initialToDoState );
     const [newTodo, setNewTodo] = useState('');
 
     const handleAddTodo = e => {
@@ -12,7 +12,7 @@ const TodoList = () =>{
     }
     console.log('initialtodostate in todolist',initialToDoState)
     console.log('todostate in todolist', todoState)
-    console.log(todoState.todoList)
+    // console.log(todoState.todoList)
     return(
         <div>
             <form>
@@ -24,7 +24,7 @@ const TodoList = () =>{
                 />
                 <button
                 onClick={() => {
-                    dispatch({type: 'ADD_TODO'})
+                    dispatch({type: 'ADD_TODO', payload:'' })
                 }}
                 >Add ToDo</button>
             </form>
