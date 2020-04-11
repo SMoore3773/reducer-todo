@@ -1,14 +1,28 @@
+
+
 export const initialToDoState ={
-    todo: 'Add a new ToDo',
-    complete: false
+   
+       todoList: [ 
+            {item: 'Add a new ToDo', completed: false, id:Date.now()}
+        ]
+    
 };
 
 export const todoReducer = (state,action) => {
-    if (action.type === 'TOGGLE_DONE') {
-        return {
-            ...state,
-            complete: !state.complete
-        };
+   
+    switch(action.type){
+        case 'TOGGLE_DONE':
+            return{
+                ...state,
+                completed: !state.complete
+            };
+        case 'ADD_TODO':
+            return{
+                ...state.todoList,
+                item: action.payload,
+                completed: false
+            };
+            default:
+                return state;
     }
-    return state;
 }

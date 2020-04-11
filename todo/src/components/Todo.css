@@ -1,0 +1,13 @@
+.todo{
+    padding:10px;
+    margin: 10px;
+    background-color: azure;
+    border: solid 1px black;
+    width: 20%;
+    font-size: large;
+}
+.done{
+    background-color: red;
+    text-decoration-line: line-through;
+    opacity: .5;
+}

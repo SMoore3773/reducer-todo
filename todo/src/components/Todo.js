@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Todo = props =>{
-    
+    console.log('props in todo component',props)
     return(
         <div>
-            todo
+            <p>{props.item.name}</p>
         </div>
     )
 }
