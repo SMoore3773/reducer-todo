@@ -11,7 +11,7 @@ const TodoList = () =>{
         setNewTodo(e.target.value);
     }
     console.log('initialtodostate in todolist',initialToDoState)
-    console.log('todostate in todolist', todoState)
+    console.log('todostate.todolist in todolist', todoState.todoList)
     // console.log(todoState.todoList)
     return(
         <div>
@@ -29,12 +29,12 @@ const TodoList = () =>{
                 >Add ToDo</button>
             </form>
             <div>
-                {/* {todoState.todoList.map(todo =>{
-                    <Todo
-                    key={todo.id}
+                {todoState.todoList.map(todo =>{
+                    return(<Todo
                     item={todo.item}
-                    />
-                })} */}
+                    onClick={ id=> dispatch({type: 'TOGGLE_DONE', payload: id})}
+                    />)
+                })}
             </div>
         </div>
     )
