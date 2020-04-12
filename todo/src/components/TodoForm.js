@@ -19,7 +19,6 @@ function TodoForm({dispatch}) {
            <form onSubmit={handleSubmit}>
             <input
                     type='text'
-                    
                     value={newTodo}
                     onChange={handleChange}
                 />

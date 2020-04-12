@@ -1,13 +1,13 @@
 .todo{
     padding:10px;
     margin: 10px;
-    background-color: azure;
+    background-color: rgb(138, 138, 138);
     border: solid 1px black;
-    width: 20%;
+    width: 50%;
     font-size: large;
 }
 .done{
-    background-color: red;
+    background-color: rgb(62, 62, 62);
     text-decoration-line: line-through;
     opacity: .5;
 }

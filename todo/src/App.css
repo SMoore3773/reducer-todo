@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+.todo{
+  padding:10px;
+  margin: 10px;
+  background-color: rgb(138, 138, 138);
+  border: solid 1px black;
+  width: 50%;
+  font-size: large;
+}
+.done{
+  background-color: rgb(62, 62, 62);
+  text-decoration-line: line-through;
+  opacity: .5;
+}
+.active{
+  color: yellow;
+}
