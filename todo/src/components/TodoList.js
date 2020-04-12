@@ -19,7 +19,7 @@ const TodoList = () =>{
                 {todoState.todoList.map(todo =>{
                     return(
                     <Todo
-                    // key={todo.id}
+                    key={todo.id}
                     item={todo}
                     dispatch={dispatch}
                     />

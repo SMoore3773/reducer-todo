@@ -16,13 +16,13 @@ export const todoReducer = (state,action) => {
     console.log('sprdlist in todoreducer',sprdlist)
 //    console.log('in reducer state', state)
 //    console.log('in reducer action', action)
-   function createTodo(task){
-    return{
-        item:task,
-        completed: false,
-        id: Date.now()
-    }
-   }
+//    function createTodo(task){
+//     return{
+//         item:task,
+//         completed: false,
+//         id: Date.now()
+//     }
+//    }
 
     switch(action.type){
 
