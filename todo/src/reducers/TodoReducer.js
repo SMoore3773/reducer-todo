@@ -34,7 +34,9 @@ export const todoReducer = (state,action) => {
                 todoList:[
                     ...state.todoList,
                     {item: action.payload,
-                    completed: false}
+                    completed: false,
+                    id:Date.now()
+                }
                 ]
             }
             // todoListCopy.push(createTodo(action.payload))
@@ -73,6 +75,13 @@ export const todoReducer = (state,action) => {
                     return item;
                 })
             }
+            case 'CLEAR_DONE':
+                return{
+                    ...state,
+                    todoList: state.todoList.filter(item=>{
+                        return !item.completed;
+                    })
+                }
       
         default:
                 return state;

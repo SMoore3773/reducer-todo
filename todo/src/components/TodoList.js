@@ -6,7 +6,9 @@ import TodoForm from './TodoForm'
 const TodoList = () =>{
 
     const [todoState, dispatch] = useReducer(todoReducer, initialToDoState );
-   
+   function clearDone(){
+       dispatch({type:'CLEAR_DONE'});
+   }
     console.log('initialtodostate in todolist',initialToDoState)
     console.log('todostate.todolist in todolist', todoState.todoList)
  
@@ -17,13 +19,14 @@ const TodoList = () =>{
                 {todoState.todoList.map(todo =>{
                     return(
                     <Todo
-                    key={todo.id}
+                    // key={todo.id}
                     item={todo}
                     dispatch={dispatch}
                     />
                     )
                 })}
             </div>
+            <button onClick={clearDone}>Clear Done</button>
         </div>
     )
 }
